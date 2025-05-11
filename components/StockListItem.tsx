@@ -15,7 +15,7 @@ type Props = {
   name: string;
   type: string;
   maturities: { date: string; lot: number }[];
-  onPress: () => void;
+  onPressFunction: () => void;
   onDelete: (id: string) => void;
 };
 
@@ -24,7 +24,7 @@ export default function StockListItem({
   name,
   type,
   maturities,
-  onPress,
+  onPressFunction,
   onDelete,
 }: Props) {
   const [maturedCount, setMaturedCount] = useState(0);
@@ -55,7 +55,7 @@ export default function StockListItem({
   };
 
   return (
-    <Pressable onPress={onPress} onLongPress={handleLongPress}>
+    <Pressable onPress={onPressFunction} onLongPress={handleLongPress}>
       <View style={styles.card}>
         <View style={styles.inlineRow}>
           <View
